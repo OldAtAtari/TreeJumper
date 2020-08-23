@@ -1,0 +1,6 @@
+../resident/fadein.o
+../resident/fadeout.o
+../resident/LynxSD.o
+../resident/lynxeeprom.o
+../resident/lynx-snd.o
+../resident/resident.o
