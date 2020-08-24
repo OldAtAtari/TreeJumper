@@ -78,7 +78,7 @@ void draw_dude (int dx, int dy, int scale)
     }
 
 // Function to draw the screen
-char drawscreen(char x, char y, char dx, char dy, int score, char lives)
+char drawscreen(char tx, char ty, char dx, char dy, int score, char lives)
     {
 // Declare variables for textscore, textlives, and gameOver
     char textScore[20];
@@ -103,13 +103,12 @@ char drawscreen(char x, char y, char dx, char dy, int score, char lives)
     tgi_outtextxy(120, 10, textScore);
     tgi_outtextxy(25, 10, textLives);
 // Draw the main boy and tree sprites
-    draw_tree(x, y, 33);
+    draw_tree(tx, ty, 33);
     draw_dude(dx, dy, 33);
 // If no more lives, then print GAME OVER, pause the sound, and return 1 to the main while loop
     if (lives == 0)
         {
         tgi_outtextxy(40, 51, "GAME OVER");
-        lynx_snd_pause ();
         return(1);
         }
     else
@@ -216,13 +215,13 @@ void game()
                 {
                 --tx;
                 }
-// If boy is at extreme left, make him fall.                
+// If boy is at extreme left, make him fall.
             if (dx <= 10)
                 {
                 dudeFall = 1;
                 ++dy;
 // If falling sound effect has not already been played, play it.
-                if (fallsound == 0)
+                if (fallsound == 0 && gameOver == 0)
                     {
                     lynx_snd_play(1, musicptr.music1);
                     fallsound = 1;
@@ -234,19 +233,19 @@ void game()
                 --dx;
                 collision = 1;
 // If collision sound hasn't been played, play it.
-                if (collsound == 0)
+                if (collsound == 0 && gameOver == 0)
                     {
                     lynx_snd_play(1,musicptr.music2);
                     collsound = 1;
                     }    
                 }
-// If boy has moved past tree and is on the ground, and if it's a new tree, increment score.                
+// If boy has moved past tree and is on the ground, and if it's a new tree, increment score.
             if (dx > tx && dy == 59 && treeNew == 1)
                 {
                 ++score;
                 treeNew = 0;
                 }
-// If tree has fallen completely off screen, reset it's variables.                
+// If tree has fallen completely off screen, reset it's variables.
             if (ty >= 115)
                 {
                 tx = 170;
