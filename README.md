@@ -1,7 +1,7 @@
 # TreeJumper
 This simple Atari Lynx game was created only as a way to learn various Lynx programming techniques and tools. It contains
-sprites, movement, sounds, and an intro screen. It also keeps track of the score and number of lives. I've tried to pu
-t detailed comments in the code so that it might be of use to the next person trying to learn these things.
+sprites, movement, sounds, and an intro screen. It also keeps track of the score and number of lives. I've tried to put
+detailed comments in the code so that it might be of use to the next person trying to learn these things.
 
 It is based on game.c in the /game/ directory of the template, which was created originally by karri and added to by Nop
 90 in the AtariAge Lynx Programming forum.
