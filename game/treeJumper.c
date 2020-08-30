@@ -109,11 +109,11 @@ char drawscreen(char tx, char ty, char dx, char dy, int score, char lives)
     if (lives == 0)
         {
         tgi_outtextxy(40, 51, "GAME OVER");
-        return 1;
+        return(1);
         }
     else
         {
-        return 0;
+        return(0);
         }
     }
 
